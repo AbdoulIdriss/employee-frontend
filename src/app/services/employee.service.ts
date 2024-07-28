@@ -13,7 +13,7 @@ export class EmployeeService {
   constructor( private http: HttpClient ) { }
 
   getAllEmployees(): Observable<ApiResponse<IEmployee[]>> {
-    return this.http.get<ApiResponse<IEmployee[]>>(`${this.apiurl}`)
+    return this.http.get<ApiResponse<IEmployee[]>>(`${this.apiurl}`, {responseType: 'json'})
   }
 
   getEmployee(id: string): Observable<ApiResponse<IEmployee>> {
@@ -23,6 +23,7 @@ export class EmployeeService {
   createEmployee(employee: IEmployee): Observable<any> {
     return this.http.post(`${this.apiurl}`, employee);
   }
+
 
   updateEmployee(id: string, employee: IEmployee): Observable<any> {
     return this.http.put(`${this.apiurl}/${id}`, employee);

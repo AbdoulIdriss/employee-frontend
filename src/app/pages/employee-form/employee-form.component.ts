@@ -74,7 +74,7 @@ export class EmployeeFormComponent implements OnChanges{
             this.resetEmployeeForm();
           },
         });
-      }this.resetEmployeeForm()
+      }this.resetEmployeeForm()    
       console.log(this.data);
       
     } else {

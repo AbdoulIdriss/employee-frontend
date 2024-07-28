@@ -20,11 +20,10 @@ export class EmployeeComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.getAllEmployee();
-    
+    this.getAllEmployees();   
   }
 
-  getAllEmployee(){
+  getAllEmployees(){
     this.employeeService.getAllEmployees().subscribe({
       next: (response)=>{
         console.log(response);       
@@ -44,9 +43,9 @@ export class EmployeeComponent implements OnInit {
   deleteEmployee(id: string){
     this.employeeService.deleteEmployee(id).subscribe({
       next:(response) =>{
-        this.getAllEmployee()
+        this.getAllEmployees()
       },
-      error: (err) => {
+            error: (err) => {
         console.error(err)
       }
     })
@@ -58,7 +57,7 @@ export class EmployeeComponent implements OnInit {
  
   closeModel(){
     this.isModelOpen = false;
-    this.getAllEmployee();  
+    this.getAllEmployees();  
   }
 
 }
